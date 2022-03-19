@@ -40,7 +40,11 @@ class Auth extends CI_Controller
                     'level' => $tb_admin['level']
                 ];
                 $this->session->set_userdata($data);
-                redirect('dashboard');
+                if ($tb_admin['level'] == 1) {
+                    redirect('dashboard_super');
+                } else {
+                    redirect('dashboard');
+                }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password !</div>');
                 redirect('auth');
@@ -91,5 +95,10 @@ class Auth extends CI_Controller
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your have been logout !</div>');
         redirect('auth');
+    }
+
+    public function blocked()
+    {
+        echo 'blocked';
     }
 }
