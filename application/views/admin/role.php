@@ -7,25 +7,26 @@
     <div class="row">
         <div class="col-lg-6">
 
-            <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>') ?>
+            <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>') ?>
             <?= $this->session->flashdata('message'); ?>
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-menu-modal">Add Menu</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-role-modal">Add Role</a>
 
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Menu</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
+                    <?php foreach ($role as $r) : ?>
                         <tr>
                             <th scope="row"><?= $i; ?></th>
-                            <td><?= $m['menu']; ?></td>
+                            <td><?= $r['role']; ?></td>
                             <td>
+                                <a href="<?= base_url('administrator/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
                                 <a href="" class="badge badge-primary">edit</a>
                                 <a href="" class="badge badge-danger">delete</a>
                             </td>
@@ -44,19 +45,19 @@
 <!-- End of Main Content -->
 
 <!-- MODAL -->
-<div class="modal fade" id="add-menu-modal" tabindex="-1" aria-labelledby="add-menu-modalLabel" aria-hidden="true">
+<div class="modal fade" id="add-role-modal" tabindex="-1" aria-labelledby="add-role-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add-menu-modalLabel">Add Menu</h5>
+                <h5 class="modal-title" id="add-role-modalLabel">Add Role</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu'); ?>" method="POST">
+            <form action="<?= base_url('administrator/role'); ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu Name">
+                        <input type="text" class="form-control" id="role" name="role" placeholder="Role">
                     </div>
                 </div>
                 <div class="modal-footer">

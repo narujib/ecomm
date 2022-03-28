@@ -11,6 +11,9 @@ class Auth extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('email')) {
+            redirect('user');
+        }
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
@@ -20,37 +23,43 @@ class Auth extends CI_Controller
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
         } else {
-            //success
             $this->_login();
         }
     }
 
     private function _login()
     {
-        $admin_email    = $this->input->post('email');
-        $admin_pass     = $this->input->post('password');
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
 
-        $tb_admin = $this->db->get_where('tb_admin', ['admin_email' => $admin_email])->row_array();
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
-        if ($tb_admin) {
-            //cekk password
-            if (password_verify($admin_pass, $tb_admin['admin_pass'])) {
-                $data = [
-                    'email' => $tb_admin['admin_email'],
-                    'level' => $tb_admin['level']
-                ];
-                $this->session->set_userdata($data);
-                if ($tb_admin['level'] == 1) {
-                    redirect('dashboard_super');
+        // USER ADA
+        if ($user) {
+            // USER AKTIF
+            if ($user['is_active'] == 1) {
+                // CEK PASSWORD
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'email' => $user['email'],
+                        'role_id' => $user['role_id']
+                    ];
+                    $this->session->set_userdata($data);
+                    if ($user['role_id'] == 1) {
+                        redirect('administrator');
+                    } else {
+                        redirect('user');
+                    }
                 } else {
-                    redirect('dashboard');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong pasword</div>');
+                    redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password !</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account has not activated</div>');
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered !</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered</div>');
             redirect('auth');
         }
     }
@@ -58,32 +67,32 @@ class Auth extends CI_Controller
     public function registration()
     {
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tb_admin.admin_email]', [
-            'is_unique' => 'This email has already registered !'
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'is_unique' => 'This email has already registered'
         ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|matches[password2]', [
-            'matches' => 'Password dont match!',
-            'min_length' => 'Password min 6 char !'
+            'matches' => 'Password dont matches',
+            'min_length' => 'Must be 6 char'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Registration Page';
+            $data['title'] = 'User Registration';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');
         } else {
             $data = [
-                'admin_name'    => htmlspecialchars($this->input->post('name', true)),
-                'admin_email'   => htmlspecialchars($this->input->post('email', true)),
-                'admin_img'     => 'default.jpg',
-                'admin_pass'    => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'level'         => 2,
-                'date_created'  => time()
+                'name'      => htmlspecialchars($this->input->post('name', 'true')),
+                'email'     => htmlspecialchars($this->input->post('email', 'true')),
+                'image'     => 'default.jpg',
+                'password'  => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'role_id'   => 2,
+                'is_active' => 1,
+                'date_created' => time()
             ];
-
-            $this->db->insert('tb_admin', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your account has been created !</div>');
+            $this->db->insert('user', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Account has been created</div>');
             redirect('auth');
         }
     }
@@ -91,14 +100,9 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('email');
-        $this->session->unset_userdata('level');
+        $this->session->unset_userdata('role_id');
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your have been logout !</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out</div>');
         redirect('auth');
-    }
-
-    public function blocked()
-    {
-        echo 'blocked';
     }
 }
