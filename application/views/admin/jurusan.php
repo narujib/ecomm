@@ -26,8 +26,8 @@
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $j['jurusan']; ?></td>
                             <td>
-                                <a href="<?= base_url(); ?>administrator/editJurusan/<?= $j['id'] ?>" class="badge badge-primary">edit</a>
-                                <a href="<?= base_url(); ?>administrator/deleteJurusan/<?= $j['id']; ?>" class="badge badge-danger" onclick="return confirm('Sure?');">delete</a>
+                                <a href="<?= base_url(); ?>administrator/editJurusan/<?= $j['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -57,11 +57,32 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Jurusan">
+                        <?= form_error('jurusan', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- MODAL -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-modal">Sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url(); ?>administrator/deleteJurusan/<?= $j['id'] ?>" method="POST">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
                 </div>
             </form>
         </div>

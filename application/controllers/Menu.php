@@ -64,4 +64,22 @@ class Menu extends CI_Controller
             redirect('menu/submenu');
         }
     }
+
+    public function deleteMenu($id)
+    {
+        $this->load->model('Delete_model', 'delete');
+
+        $data['delete'] = $this->delete->deleteDataMenu($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Delete success</div>');
+        redirect('menu');
+    }
+
+    public function deleteSubMenu($id)
+    {
+        $this->load->model('Delete_model', 'delete');
+
+        $data['delete'] = $this->delete->deleteSubMenu($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Delete success</div>');
+        redirect('menu/submenu');
+    }
 }

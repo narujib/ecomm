@@ -17,9 +17,18 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
+
                     <h5 class="card-title"><?= $user['name']; ?></h5>
                     <p class="card-text"><?= $user['email']; ?></p>
-                    <p class="card-text"><?= $user['jurusan_id']; ?></p>
+                    <p class="card-text">
+                        <?php foreach ($jurusan as $j) : ?>
+                            <?php if ($user['jurusan_id'] == $j['id']) {
+                                echo $j['jurusan'];
+                            }
+                            ?>
+                        <?php endforeach; ?>
+                    </p>
+
                     <p class="card-text"><small class="text-muted">Join at <?= date('d F Y', $user['date_created']); ?></small></p>
                 </div>
             </div>

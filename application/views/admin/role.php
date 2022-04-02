@@ -26,9 +26,9 @@
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $r['role']; ?></td>
                             <td>
-                                <a href="<?= base_url('administrator/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
-                                <a href="" class="badge badge-primary">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                                <a href="<?= base_url('administrator/roleaccess/') . $r['id']; ?>" class="btn btn-warning"><i class="fas fa-user-lock"></i></a>
+                                <a href="<?= base_url('administrator/roleedit/') . $r['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -44,6 +44,7 @@
 </div>
 <!-- End of Main Content -->
 
+
 <!-- MODAL -->
 <div class="modal fade" id="add-role-modal" tabindex="-1" aria-labelledby="add-role-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -58,11 +59,32 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="role" name="role" placeholder="Role">
+                        <?= form_error('role', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-modalLabel">Sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url('administrator/deleteRole/') . $r['id']; ?>" method="POST">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
                 </div>
             </form>
         </div>

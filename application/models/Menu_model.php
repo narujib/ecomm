@@ -11,4 +11,15 @@ class Menu_model extends CI_Model
         ";
         return $this->db->query($query)->result_array();
     }
+
+    public function getJurusan()
+    {
+        $query = "SELECT `product`.*, `jurusan`.`jurusan`, `user`.`name`
+                    FROM ((`product`
+              INNER JOIN `jurusan` ON `product`.`jurusan_id` = `jurusan`.`id`)
+              INNER JOIN `user` ON `product`.`user_id` = `user`.`id`)
+                ORDER BY `product`.`id` DESC
+        ";
+        return $this->db->query($query)->result_array();
+    }
 }

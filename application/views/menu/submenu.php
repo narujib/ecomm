@@ -37,10 +37,17 @@
                             <td><?= $sm['menu']; ?></td>
                             <td><?= $sm['url']; ?></td>
                             <td><?= $sm['icon']; ?></td>
-                            <td><?= $sm['is_active']; ?></td>
                             <td>
-                                <a href="" class="badge badge-primary">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                                <?php if ($sm['is_active'] == 1) {
+                                    echo "Yes";
+                                } else {
+                                    echo "No";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -70,6 +77,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                        <?= form_error('title', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <select name="menu_id" id="menu_id" class="form-control">
@@ -78,12 +86,15 @@
                                 <option value="<?= $m['id'] ?>"><?= $m['menu']; ?></option>
                             <?php endforeach; ?>
                         </select>
+                        <?= form_error('menu_id', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="url" name="url" placeholder="URL">
+                        <?= form_error('url', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="icon" name="icon" placeholder="Icon">
+                        <?= form_error('icon', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                     <div class="form-group">
 
@@ -104,6 +115,28 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-modalLabel">Sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url(); ?>menu/deletesubmenu/<?= $sm['id'] ?>" method="POST">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
                 </div>
             </form>
         </div>
