@@ -16,60 +16,71 @@
             <?= $this->session->flashdata('message'); ?>
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-accounts-modal">Create Accounts</a>
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Active</th>
-                        <th scope="col">Jurusan</th>
-                        <th scope="col">Create</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($userList as $u) : ?>
-                        <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $u['name']; ?></td>
-                            <td><?= $u['email']; ?></td>
-                            <td>
-                                <?php foreach ($user_role as $ur) : ?>
-                                    <?php if ($u['role_id'] == $ur['id']) {
-                                        echo $ur['role'];
-                                    }
-                                    ?>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">User List</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Active</th>
+                                    <th>Jurusan</th>
+                                    <th>Create</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1; ?>
+                                <?php foreach ($userList as $u) : ?>
+                                    <tr>
+                                        <td><?= $i; ?></td>
+                                        <td><?= $u['name']; ?></td>
+                                        <td><?= $u['email']; ?></td>
+                                        <td>
+                                            <?php foreach ($user_role as $ur) : ?>
+                                                <?php if ($u['role_id'] == $ur['id']) {
+                                                    echo $ur['role'];
+                                                }
+                                                ?>
+                                            <?php endforeach; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($u['is_active'] == 1) {
+                                                echo "Yes";
+                                            } else {
+                                                echo "No";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($jurusan as $j) : ?>
+                                                <?php if ($u['jurusan_id'] == $j['id']) {
+                                                    echo $j['jurusan'];
+                                                }
+                                                ?>
+                                            <?php endforeach; ?>
+                                        </td>
+                                        <td><?= date('d F Y', $u['date_created']); ?></td>
+                                        <td>
+                                            <a href="<?= base_url(); ?>administrator/editUser/<?= $u['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
                                 <?php endforeach; ?>
-                            </td>
-                            <td>
-                                <?php if ($u['is_active'] == 1) {
-                                    echo "Yes";
-                                } else {
-                                    echo "No";
-                                }
-                                ?>
-                            </td>
-                            <td>
-                                <?php foreach ($jurusan as $j) : ?>
-                                    <?php if ($u['jurusan_id'] == $j['id']) {
-                                        echo $j['jurusan'];
-                                    }
-                                    ?>
-                                <?php endforeach; ?>
-                            </td>
-                            <td><?= date('d F Y', $u['date_created']); ?></td>
-                            <td>
-                                <a href="<?= base_url(); ?>administrator/editUser/<?= $u['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

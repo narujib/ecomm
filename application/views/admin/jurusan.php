@@ -7,7 +7,11 @@
     <div class="row">
         <div class="col-lg-6">
 
-            <?= form_error('jurusan', '<div class="alert alert-danger" role="alert">', '</div>') ?>
+            <?php if (validation_errors()) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= validation_errors() ?>
+                </div>
+            <?php endif; ?>
             <?= $this->session->flashdata('message'); ?>
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-jurusan-modal">Add Jurusan</a>
 
@@ -16,6 +20,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Jurusan</th>
+                        <th scope="col">Whatsapp</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -25,6 +30,7 @@
                         <tr>
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $j['jurusan']; ?></td>
+                            <td><?= $j['wa']; ?></td>
                             <td>
                                 <a href="<?= base_url(); ?>administrator/editJurusan/<?= $j['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                 <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
@@ -58,6 +64,10 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Jurusan">
                         <?= form_error('jurusan', '<small class="text-danger pl">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="wa" name="wa" placeholder="Whatsapp">
+                        <?= form_error('wa', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">

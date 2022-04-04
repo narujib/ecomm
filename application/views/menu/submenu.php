@@ -16,44 +16,55 @@
             <?= $this->session->flashdata('message'); ?>
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-submenu-modal">Add Sub Menu</a>
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Menu</th>
-                        <th scope="col">URL</th>
-                        <th scope="col">Icon</th>
-                        <th scope="col">Active</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($subMenu as $sm) : ?>
-                        <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $sm['title']; ?></td>
-                            <td><?= $sm['menu']; ?></td>
-                            <td><?= $sm['url']; ?></td>
-                            <td><?= $sm['icon']; ?></td>
-                            <td>
-                                <?php if ($sm['is_active'] == 1) {
-                                    echo "Yes";
-                                } else {
-                                    echo "No";
-                                }
-                                ?>
-                            </td>
-                            <td>
-                                <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Sub Menu List</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Menu</th>
+                                    <th>URL</th>
+                                    <th>Icon</th>
+                                    <th>Active</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1; ?>
+                                <?php foreach ($subMenu as $sm) : ?>
+                                    <tr>
+                                        <td><?= $i; ?></td>
+                                        <td><?= $sm['title']; ?></td>
+                                        <td><?= $sm['menu']; ?></td>
+                                        <td><?= $sm['url']; ?></td>
+                                        <td><?= $sm['icon']; ?></td>
+                                        <td>
+                                            <?php if ($sm['is_active'] == 1) {
+                                                echo "Yes";
+                                            } else {
+                                                echo "No";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

@@ -201,6 +201,7 @@ class Administrator extends CI_Controller
         $data['jurusan'] = $this->db->get('jurusan')->result_array();
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
+        $this->form_validation->set_rules('wa', 'Whatsapp', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/user_header', $data);
@@ -209,7 +210,12 @@ class Administrator extends CI_Controller
             $this->load->view('admin/jurusan', $data);
             $this->load->view('templates/user_footer');
         } else {
-            $this->db->insert('jurusan', ['jurusan' => $this->input->post('jurusan')]);
+            $data = [
+                'jurusan'   => $this->input->post('jurusan'),
+                'wa'   => $this->input->post('wa'),
+            ];
+            $this->db->insert('jurusan', $data);
+
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Jurusan added</div>');
             redirect('administrator/jurusan');
         }
@@ -222,6 +228,7 @@ class Administrator extends CI_Controller
         $data['jurusan'] = $this->db->get_where('jurusan', ['id' => $id])->row_array();
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
+        $this->form_validation->set_rules('wa', 'Whatsapp', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/user_header', $data);
@@ -231,12 +238,16 @@ class Administrator extends CI_Controller
             $this->load->view('templates/user_footer');
         } else {
             $jurusan = $this->input->POST('jurusan');
+            $wa = $this->input->POST('wa');
+
             $this->db->set('jurusan', $jurusan);
+            $this->db->set('wa', $wa);
+
 
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('jurusan');
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Jurusan Name has been changed</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Jurusan has been changed</div>');
             redirect('administrator/jurusan');
         }
     }

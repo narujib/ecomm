@@ -25,6 +25,19 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="wa" class="col-sm-4 col-form-label">Current Whatsapp</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="wa" name="wa" value="<?= $jurusan['wa']; ?>" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="role" class="col-sm-4 col-form-label">Whatsapp</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="wa" name="wa">
+                        <?= form_error('wa', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-sm-10">
                         <a href="<?= base_url('administrator/jurusan'); ?>" class="btn btn-danger">Cancel</a>
                         <button type="submit" class="btn btn-primary">Edit</button>

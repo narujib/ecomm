@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2022 at 10:11 AM
+-- Generation Time: Apr 05, 2022 at 01:30 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `jurusan` (
   `id` int(11) NOT NULL,
-  `jurusan` varchar(128) NOT NULL
+  `jurusan` varchar(128) NOT NULL,
+  `wa` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jurusan`
 --
 
-INSERT INTO `jurusan` (`id`, `jurusan`) VALUES
-(4, 'Admin'),
-(20, 'Bisnis Konstruksi dan Properti'),
-(21, 'Teknik Elektronika Industri'),
-(22, 'Teknik Instalasi Tenaga Listrik');
+INSERT INTO `jurusan` (`id`, `jurusan`, `wa`) VALUES
+(4, 'Admin', '08888888888'),
+(20, 'Bisnis Konstruksi dan Properti', '089999999'),
+(21, 'Teknik Elektronika Industri', '08777777'),
+(22, 'Teknik Instalasi Tenaga Listrik', '08555555');
 
 -- --------------------------------------------------------
 
@@ -210,7 +211,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `user`
