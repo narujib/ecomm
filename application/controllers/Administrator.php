@@ -14,6 +14,14 @@ class Administrator extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $this->load->model('Menu_model', 'menu');
+
+        $data['jmlUser'] = $this->menu->jmlUser();
+        $data['jmlJurusan'] = $this->menu->jmlJurusan();
+        $data['jmlProduct'] = $this->menu->jmlProduct();
+        $data['jmlMenu'] = $this->menu->jmlMenu();
+        $data['jmlSubMenu'] = $this->menu->jmlSubMenu();
+
         $this->load->view('templates/user_header', $data);
         $this->load->view('templates/user_sidebar', $data);
         $this->load->view('templates/user_topbar', $data);
@@ -202,6 +210,7 @@ class Administrator extends CI_Controller
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
         $this->form_validation->set_rules('wa', 'Whatsapp', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/user_header', $data);
@@ -213,6 +222,7 @@ class Administrator extends CI_Controller
             $data = [
                 'jurusan'   => $this->input->post('jurusan'),
                 'wa'   => $this->input->post('wa'),
+                'email'   => $this->input->post('email'),
             ];
             $this->db->insert('jurusan', $data);
 
@@ -229,6 +239,8 @@ class Administrator extends CI_Controller
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
         $this->form_validation->set_rules('wa', 'Whatsapp', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/user_header', $data);
@@ -239,9 +251,11 @@ class Administrator extends CI_Controller
         } else {
             $jurusan = $this->input->POST('jurusan');
             $wa = $this->input->POST('wa');
+            $email = $this->input->POST('email');
 
             $this->db->set('jurusan', $jurusan);
             $this->db->set('wa', $wa);
+            $this->db->set('email', $email);
 
 
             $this->db->where('id', $this->input->post('id'));

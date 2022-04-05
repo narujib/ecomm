@@ -39,15 +39,18 @@
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($product as $c) : ?>
+
+
                                     <tr>
                                         <td><?= $i; ?></td>
-                                        <td><?= $c['name']; ?></td>
-                                        <td><img src="<?= base_url('assets/img/product/') . $c['image']; ?>" class="card-img w-25 p-3"></td>
+                                        <td><?= $c['title']; ?></td>
+                                        <td class="col-sm-1"><img src="<?= base_url('assets/img/product/') . $c['image']; ?>" class="img-thumbnail img-fluid"></td>
                                         <td><?= $c['description']; ?></td>
                                         <td><?= $c['jurusan']; ?></td>
                                         <td><?= $c['name']; ?> </td>
                                         <td><?= date('d F Y', $c['create_at']); ?></td>
                                         <td>
+                                            <a href="<?= base_url(); ?>home/productSingle/<?= $c['id'] ?>" target="_blank" class="btn btn-warning"><i class="fas fa-eye"></i></a>
                                             <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                         </td>

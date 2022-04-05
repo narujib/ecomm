@@ -1,156 +1,97 @@
-<!-- Start Footer -->
-<footer class="bg-secondary pt-4">
-    <div class="container">
-        <div class="row py-4">
-
-            <div class="col-lg-3 col-12 align-left">
-                <a class="navbar-brand" href="index.html">
-                    <i class='bx bx-buildings bx-sm text-light'></i>
-                    <span class="text-light h5">Purple</span> <span class="text-light h5 semi-bold-600">Buzz</span>
-                </a>
-                <p class="text-light my-lg-4 my-2">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut.
-                </p>
-                <ul class="list-inline footer-icons light-300">
-                    <li class="list-inline-item m-0">
-                        <a class="text-light" target="_blank" href="http://facebook.com/">
-                            <i class='bx bxl-facebook-square bx-md'></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item m-0">
-                        <a class="text-light" target="_blank" href="https://www.linkedin.com/">
-                            <i class='bx bxl-linkedin-square bx-md'></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item m-0">
-                        <a class="text-light" target="_blank" href="https://www.whatsapp.com/">
-                            <i class='bx bxl-whatsapp-square bx-md'></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item m-0">
-                        <a class="text-light" target="_blank" href="https://www.flickr.com/">
-                            <i class='bx bxl-flickr-square bx-md'></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item m-0">
-                        <a class="text-light" target="_blank" href="https://www.medium.com/">
-                            <i class='bx bxl-medium-square bx-md'></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
-                <h3 class="h4 pb-lg-3 text-light light-300">Our Company</h2>
-                    <ul class="list-unstyled text-light light-300">
-                        <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light" href="index.html">Home</a>
-                        </li>
-                        <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="about.html">About Us</a>
-                        </li>
-                        <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="work.html">Work</a>
-                        </li>
-                        <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i></i><a class="text-decoration-none text-light py-1" href="pricing.html">Price</a>
-                        </li>
-                        <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
-                <h2 class="h4 pb-lg-3 text-light light-300">Our Works</h2>
-                <ul class="list-unstyled text-light light-300">
-                    <li class="pb-2">
-                        <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Branding</a>
-                    </li>
-                    <li class="pb-2">
-                        <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Business</a>
-                    </li>
-                    <li class="pb-2">
-                        <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Marketing</a>
-                    </li>
-                    <li class="pb-2">
-                        <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Social Media</a>
-                    </li>
-                    <li class="pb-2">
-                        <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Digital Solution</a>
-                    </li>
-                    <li class="pb-2">
-                        <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Graphic</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
-                <h2 class="h4 pb-lg-3 text-light light-300">For Client</h2>
-                <ul class="list-unstyled text-light light-300">
-                    <li class="pb-2">
-                        <i class='bx-fw bx bx-phone bx-xs'></i><a class="text-decoration-none text-light py-1" href="tel:010-020-0340">010-020-0340</a>
-                    </li>
-                    <li class="pb-2">
-                        <i class='bx-fw bx bx-mail-send bx-xs'></i><a class="text-decoration-none text-light py-1" href="mailto:info@company.com">info@company.com</a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="w-100 bg-primary py-3">
+<footer id="footer" class="bg-one">
+    <div class="top-footer">
         <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <h3>about</h3>
+                    <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus cursus commodo, tortor mauris sed posuere.</p>
+                </div>
+                <!-- End of .col-sm-3 -->
 
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <ul>
+                        <li>
+                            <h3>Our Services</h3>
+                        </li>
+                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                    </ul>
+                </div>
+                <!-- End of .col-sm-3 -->
 
-            <div class="copyright text-center text-light light-300 my-auto">
-                <span>Copyright &copy; <?= date('Y');  ?> Developed with</span>
-                <i class="fas fa-heart" style="color: red;"> </i>
-                <span>by</span>
-                <strong> ICT SMK Negeri Jawa Tengah</strong>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <ul>
+                        <li>
+                            <h3>Quick Links</h3>
+                        </li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">FAQ’s</a></li>
+                        <li><a href="#">Badges</a></li>
+                    </ul>
+                </div>
+                <!-- End of .col-sm-3 -->
+
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <ul>
+                        <li>
+                            <h3>Connect with us Socially</h3>
+                        </li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ul>
+                </div>
+                <!-- End of .col-sm-3 -->
+
             </div>
-
-
-        </div>
+        </div> <!-- end container -->
     </div>
+    <div class="footer-bottom">
+        <h5>Copyright &copy; <?= date('Y');  ?> Developed with
+            <i class="fas fa-heart" style="color: red;"> </i>
+        </h5>
+        <h5>by</h5>
+        <h6><strong> ICT SMK Negeri Jawa Tengah</strong></h6>
+    </div>
+</footer> <!-- end footer -->
 
-</footer>
-<!-- End Footer -->
+
+<!-- end Footer Area
+    ========================================== -->
 
 
-<!-- Bootstrap -->
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<!-- Load jQuery require for isotope -->
-<script src="assets/js/jquery.min.js"></script>
-<!-- Isotope -->
-<script src="assets/js/isotope.pkgd.js"></script>
-<!-- Page Script -->
-<script>
-    $(window).load(function() {
-        // init Isotope
-        var $projects = $('.projects').isotope({
-            itemSelector: '.project',
-            layoutMode: 'fitRows'
-        });
-        $(".filter-btn").click(function() {
-            var data_filter = $(this).attr("data-filter");
-            $projects.isotope({
-                filter: data_filter
-            });
-            $(".filter-btn").removeClass("active");
-            $(".filter-btn").removeClass("shadow");
-            $(this).addClass("active");
-            $(this).addClass("shadow");
-            return false;
-        });
-    });
-</script>
-<!-- Templatemo -->
-<script src="<?= base_url(); ?>assets/js/templatemo.js"></script>
-<!-- Custom -->
-<script src="<?= base_url(); ?>assets/js/custom.js"></script>
+
+<!-- 
+    Essential Scripts
+    =====================================-->
+<!-- Main jQuery -->
+<script src="<?= base_url('assets/home/'); ?>plugins/jquery/jquery.min.js"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="<?= base_url('assets/home/'); ?>plugins/google-map/gmap.js"></script>
+
+<!-- Form Validation -->
+<script src="<?= base_url('assets/home/'); ?>plugins/form-validation/jquery.form.js"></script>
+<script src="<?= base_url('assets/home/'); ?>plugins/form-validation/jquery.validate.min.js"></script>
+
+<!-- Bootstrap4 -->
+<script src="<?= base_url('assets/home/'); ?>plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="<?= base_url('assets/home/'); ?>plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="<?= base_url('assets/home/'); ?>plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Owl Carousel -->
+<script src="<?= base_url('assets/home/'); ?>plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="<?= base_url('assets/home/'); ?>plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="<?= base_url('assets/home/'); ?>plugins/smooth-scroll/smooth-scroll.min.js"></script>
+
+<!-- Custom js -->
+<script src="<?= base_url('assets/home/'); ?>js/script.js"></script>
 
 </body>
 

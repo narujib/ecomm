@@ -19,10 +19,10 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-1 col-form-label">Name</label>
+                <label for="title" class="col-sm-1 col-form-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name">
-                    <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    <input type="text" class="form-control" id="title" name="title">
+                    <?= form_error('title', '<small class="text-danger">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">

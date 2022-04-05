@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 01:30 AM
+-- Generation Time: Apr 05, 2022 at 02:17 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -30,18 +30,53 @@ SET time_zone = "+00:00";
 CREATE TABLE `jurusan` (
   `id` int(11) NOT NULL,
   `jurusan` varchar(128) NOT NULL,
-  `wa` varchar(128) NOT NULL
+  `wa` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jurusan`
 --
 
-INSERT INTO `jurusan` (`id`, `jurusan`, `wa`) VALUES
-(4, 'Admin', '08888888888'),
-(20, 'Bisnis Konstruksi dan Properti', '089999999'),
-(21, 'Teknik Elektronika Industri', '08777777'),
-(22, 'Teknik Instalasi Tenaga Listrik', '08555555');
+INSERT INTO `jurusan` (`id`, `jurusan`, `wa`, `email`) VALUES
+(4, 'admin', '555555555', 'admin@gmail.com'),
+(20, 'Bisnis Konstruksi dan Properti', '089999999', 'sss@gmail.com'),
+(21, 'Teknik Elektronika Industri', '08777777', 'kkk@gmail.com'),
+(22, 'Teknik Instalasi Tenaga Listrik', '08555555', 'qqq@gmail.com'),
+(30, 'new jurusan', '3333333333', 'new@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `image` varchar(256) NOT NULL,
+  `description` text NOT NULL,
+  `jurusan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `create_at` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `title`, `image`, `description`, `jurusan_id`, `user_id`, `create_at`) VALUES
+(7, 'Najib', 'default.png', 'najibBKP', 20, 1, 1648885489),
+(8, 'Najib', 'default.png', 'NajibAdmin', 4, 1, 1648885508),
+(9, 'Taro', 'default.png', 'taroAdmin', 4, 15, 1648885618),
+(10, 'taaro', 'default.png', 'TEI', 21, 15, 1648885745),
+(11, 'menhara', 'default.jpg', 'taroTITL', 22, 15, 1648886128),
+(12, 'Taro', 'default.jpg', 'taromenharaTEI', 21, 15, 1648886262),
+(13, 'ssss', 'Jadwal.png', 's', 4, 1, 1649031285),
+(15, '12', 'default1.jpg', 'rtet', 20, 1, 1649113489),
+(16, 'ww', 'Jadwal.png', 'wwww12', 21, 1, 1649113522),
+(18, 'er', 'e.png', 'er', 20, 1, 1649114874),
+(20, 'ddd', 'e.png', 'eee', 20, 1, 1649140534);
 
 -- --------------------------------------------------------
 
@@ -161,7 +196,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (16, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
 (23, 1, 'Accounts', 'administrator/accounts', 'fas fa-fw fa-users', 1),
 (24, 1, 'Jurusan', 'administrator/jurusan', 'fas fa-fw fa-tasks', 1),
-(25, 2, 'Product', 'user/product', 'fas fa-fw fa-horse', 1);
+(25, 2, 'Product', 'user/product', 'fas fa-fw fa-calendar', 1);
 
 --
 -- Indexes for dumped tables
@@ -171,6 +206,12 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 -- Indexes for table `jurusan`
 --
 ALTER TABLE `jurusan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -211,7 +252,13 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`

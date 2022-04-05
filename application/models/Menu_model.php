@@ -22,4 +22,54 @@ class Menu_model extends CI_Model
         ";
         return $this->db->query($query)->result_array();
     }
+
+    public function jmlUser()
+    {
+        $query = $this->db->get('user');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jmlJurusan()
+    {
+        $query = $this->db->get('jurusan');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jmlProduct()
+    {
+        $query = $this->db->get('product');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jmlMenu()
+    {
+        $query = $this->db->get('user_menu');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jmlSubMenu()
+    {
+        $query = $this->db->get('user_sub_menu');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
 }

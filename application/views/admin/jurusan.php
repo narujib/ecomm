@@ -5,7 +5,7 @@
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-10">
 
             <?php if (validation_errors()) : ?>
                 <div class="alert alert-danger" role="alert">
@@ -21,6 +21,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Jurusan</th>
                         <th scope="col">Whatsapp</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -31,6 +32,7 @@
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $j['jurusan']; ?></td>
                             <td><?= $j['wa']; ?></td>
+                            <td><?= $j['email']; ?></td>
                             <td>
                                 <a href="<?= base_url(); ?>administrator/editJurusan/<?= $j['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                 <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
@@ -68,6 +70,10 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="wa" name="wa" placeholder="Whatsapp">
                         <?= form_error('wa', '<small class="text-danger pl">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        <?= form_error('email', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -144,7 +144,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['jurusan'] = $this->db->get('jurusan')->result_array();
 
-        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('title', 'Title', 'required|trim');
         $this->form_validation->set_rules('description', 'Descrioption', 'required|trim');
         $this->form_validation->set_rules('jurusan_id', 'Jurusan', 'required|trim');
         if ($this->form_validation->run() == false) {
@@ -176,7 +176,7 @@ class User extends CI_Controller
                 }
             }
             $data = [
-                'name'          => $this->input->post('name'),
+                'title'          => $this->input->post('title'),
                 'image'         => $upload_image,
                 'description'   => $this->input->post('description'),
                 'jurusan_id'    => $this->input->post('jurusan_id'),
