@@ -11,43 +11,28 @@
 
             <form action="" method="POST">
                 <input type="hidden" name="id" id="id" value="<?= $jurusan['id']; ?>">
+
                 <div class="form-group row">
-                    <label for="name" class="col-sm-4 col-form-label">Current Jurusan Name</label>
+                    <label for="jurusan" class="col-sm-4 col-form-label">Jurusan Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="name" value="<?= $jurusan['jurusan']; ?>" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="jurusan" class="col-sm-4 col-form-label">New Jurusan Name</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="jurusan" name="jurusan">
+                        <input type="text" value="<?= $jurusan['jurusan']; ?>" class="form-control" id="jurusan" name="jurusan">
                         <?= form_error('jurusan', '<small class="text-danger">', '</small>'); ?>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="wa" class="col-sm-4 col-form-label">Current Whatsapp</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="wa" name="wa" value="<?= $jurusan['wa']; ?>" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="wa" class="col-sm-4 col-form-label">Whatsapp</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="wa" name="wa">
-                        <?= form_error('wa', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="email" class="col-sm-4 col-form-label">Current Email</label>
+                    <label for="wa" class="col-sm-4 col-form-label">Whatsapp</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="email" name="email" value="<?= $jurusan['email']; ?>" readonly>
+                        <input type="text" class="form-control" value="<?= $jurusan['wa']; ?>" id="wa" name="wa">
+                        <?= form_error('wa', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
+
+
                 <div class="form-group row">
                     <label for="email" class="col-sm-4 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="text" class="form-control" value="<?= $jurusan['email']; ?>" id="email" name="email">
                         <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>

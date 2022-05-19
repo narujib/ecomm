@@ -14,12 +14,13 @@
             <?php endif; ?>
 
             <?= $this->session->flashdata('message'); ?>
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-accounts-modal">Create Accounts</a>
+
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">User List</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">User List <a href="" class="btn btn-primary float-right" data-toggle="modal" data-target="#add-accounts-modal">Create Accounts</a></h6>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -69,8 +70,9 @@
                                         </td>
                                         <td><?= date('d F Y', $u['date_created']); ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>administrator/editUser/<?= $u['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="<?= base_url(); ?>administrator/resetpassuser/<?= $u['id'] ?>" class="btn btn-warning m-1" onclick="return confirm('Sure?');"><i class="fas fa-key"></i></a>
+                                            <a href="<?= base_url(); ?>administrator/editUser/<?= $u['id'] ?>" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url(); ?>administrator/deletuser/<?= $u['id'] ?>" class="btn btn-danger m-1" onclick="return confirm('Delete this account?');"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -114,16 +116,6 @@
                         <?= form_error('email', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
                     <div class="form-group">
-                        <label for="jurusan_id">Jurusan</label>
-                        <select name="jurusan_id" id="jurusan_id" class="form-control">
-                            <option value="">Select Jurusan</option>
-                            <?php foreach ($jurusan as $j) : ?>
-                                <option value="<?= $j['id'] ?>"><?= $j['jurusan']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <?= form_error('jurusan_id', '<small class="text-danger pl">', '</small>'); ?>
-                    </div>
-                    <div class="form-group">
                         <label for="role_id">Role</label>
                         <select name="role_id" id="role_id" class="form-control">
                             <option value="">Select Role</option>
@@ -133,6 +125,17 @@
                         </select>
                         <?= form_error('role_id', '<small class="text-danger pl">', '</small>'); ?>
                     </div>
+                    <div class="form-group">
+                        <label for="jurusan_id">Jurusan</label>
+                        <select name="jurusan_id" id="jurusan_id" class="form-control">
+                            <option value="">Select Jurusan</option>
+                            <?php foreach ($jurusan as $j) : ?>
+                                <option value="<?= $j['id'] ?>"><?= $j['jurusan']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?= form_error('jurusan_id', '<small class="text-danger pl">', '</small>'); ?>
+                    </div>
+
                     <div class="form-group">
                         <label for="password1">Password</label>
                         <input type="password" class="form-control form-control-user" id="password1" name="password1">

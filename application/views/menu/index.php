@@ -26,7 +26,7 @@
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $m['menu']; ?></td>
                             <td>
-                                <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="<?= base_url('menu/menuedit/') . $m['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                 <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
 
                             </td>

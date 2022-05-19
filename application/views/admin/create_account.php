@@ -19,6 +19,16 @@
                     <?= form_error('email', '<small class="text-danger pl">', '</small>'); ?>
                 </div>
                 <div class="form-group">
+                    <label for="role_id">Role</label>
+                    <select name="role_id" id="role_id" class="form-control">
+                        <option value="">Select Role</option>
+                        <?php foreach ($role_id as $r) : ?>
+                            <option value="<?= $r['id'] ?>"><?= $r['role']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <?= form_error('role_id', '<small class="text-danger pl">', '</small>'); ?>
+                </div>
+                <div class="form-group">
                     <label for="jurusan_id">Jurusan</label>
                     <select name="jurusan_id" id="jurusan_id" class="form-control">
                         <option value="">Select Jurusan</option>
@@ -27,16 +37,6 @@
                         <?php endforeach; ?>
                     </select>
                     <?= form_error('jurusan_id', '<small class="text-danger pl">', '</small>'); ?>
-                </div>
-                <div class="form-group">
-                    <label for="role_id">Jurusan</label>
-                    <select name="role_id" id="role_id" class="form-control">
-                        <option value="">Select Role</option>
-                        <?php foreach ($role_id as $r) : ?>
-                            <option value="<?= $r['id'] ?>"><?= $r['role']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <?= form_error('role_id', '<small class="text-danger pl">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="password1">Password</label>

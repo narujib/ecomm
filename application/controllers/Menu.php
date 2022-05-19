@@ -34,7 +34,6 @@ class Menu extends CI_Controller
     {
         $data['title'] = 'Sub Menu Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['menu'] = $this->db->get('user_menu')->result_array();
         $this->load->model('Menu_model', 'menu');
 
         $data['subMenu'] = $this->menu->getSubMenu();
@@ -81,5 +80,73 @@ class Menu extends CI_Controller
         $data['delete'] = $this->delete->deleteSubMenu($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Delete success</div>');
         redirect('menu/submenu');
+    }
+
+    public function menuedit($id)
+    {
+        $data['title'] = 'Menu Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['menu'] = $this->db->get_where('user_menu', ['id' => $id])->row_array();
+
+        $this->form_validation->set_rules('menu', 'Menu', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/user_header', $data);
+            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('templates/user_topbar', $data);
+            $this->load->view('menu/menu_edit', $data);
+            $this->load->view('templates/user_footer');
+        } else {
+            $menu = $this->input->POST('menu');
+
+            $this->db->set('menu', $menu);
+
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_menu');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit success</div>');
+            redirect('menu');
+        }
+    }
+
+    public function submenuedit($id)
+    {
+        $data['title'] = 'Sub Menu Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['ed_menu'] = $this->db->get_where('user_sub_menu', ['id' => $id])->row_array();
+        $data['submenu'] = $this->db->get_where('user_sub_menu', ['id' => $id])->row_array();
+        $data['menu'] = $this->db->get('user_menu')->result_array();
+
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('menu_id', 'Menu', 'required');
+        $this->form_validation->set_rules('url', 'URL', 'required');
+        $this->form_validation->set_rules('icon', 'Icon', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/user_header', $data);
+            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('templates/user_topbar', $data);
+            $this->load->view('menu/submenu_edit', $data);
+            $this->load->view('templates/user_footer');
+        } else {
+            $title = $this->input->POST('title');
+            $menu_id = $this->input->POST('menu_id');
+            $url = $this->input->POST('url');
+            $icon = $this->input->POST('icon');
+            $is_active = $this->input->POST('is_active');
+
+            $this->db->set('title', $title);
+            $this->db->set('menu_id', $menu_id);
+            $this->db->set('url', $url);
+            $this->db->set('icon', $icon);
+            $this->db->set('is_active', $is_active);
+
+
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_sub_menu');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit succes</div>');
+            redirect('menu/submenu');
+        }
     }
 }

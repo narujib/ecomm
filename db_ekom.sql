@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 02:17 PM
+-- Generation Time: May 19, 2022 at 11:57 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `home`
+--
+
+CREATE TABLE `home` (
+  `id` int(11) NOT NULL,
+  `hero_img_1` varchar(256) NOT NULL,
+  `hero_img_2` varchar(256) NOT NULL,
+  `hero_des` text NOT NULL,
+  `about_img` varchar(256) NOT NULL,
+  `about_des` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `home`
+--
+
+INSERT INTO `home` (`id`, `hero_img_1`, `hero_img_2`, `hero_des`, `about_img`, `about_des`) VALUES
+(1, 'hero1.jpg', 'hero2.jpg', 'Product SMK Negeri Jawa tengah    ', 'about.jpeg', 'SMK Negeri Jateng di Semarang adalah sekolah yang didirikan oleh Pemerintah Provinsi Jawa Tengah melalui Keputusan Gubernur Jawa Tengah nomor 420/28 tahun 2014 tanggal 22 April 2014, dan diresmikan oleh Menteri Pendidikan dan Kebudayaan Prof.DR. Muhammad Nuh,DEA pada tanggal 2 Juni 2014');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jurusan`
 --
 
@@ -39,11 +61,8 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`id`, `jurusan`, `wa`, `email`) VALUES
-(4, 'admin', '555555555', 'admin@gmail.com'),
-(20, 'Bisnis Konstruksi dan Properti', '089999999', 'sss@gmail.com'),
-(21, 'Teknik Elektronika Industri', '08777777', 'kkk@gmail.com'),
-(22, 'Teknik Instalasi Tenaga Listrik', '08555555', 'qqq@gmail.com'),
-(30, 'new jurusan', '3333333333', 'new@gmail.com');
+(1, 'Administrator', '1111111111', 'admin@gmail.com'),
+(2, 'Bisnis Konstruksi dan Properti', '2222222222', 'bkp@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -55,6 +74,11 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `title` varchar(128) NOT NULL,
   `image` varchar(256) NOT NULL,
+  `image2` varchar(256) NOT NULL,
+  `image3` varchar(256) NOT NULL,
+  `image4` varchar(256) NOT NULL,
+  `image5` varchar(256) NOT NULL,
+  `youtube_embed` varchar(128) NOT NULL,
   `description` text NOT NULL,
   `jurusan_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -65,18 +89,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `image`, `description`, `jurusan_id`, `user_id`, `create_at`) VALUES
-(7, 'Najib', 'default.png', 'najibBKP', 20, 1, 1648885489),
-(8, 'Najib', 'default.png', 'NajibAdmin', 4, 1, 1648885508),
-(9, 'Taro', 'default.png', 'taroAdmin', 4, 15, 1648885618),
-(10, 'taaro', 'default.png', 'TEI', 21, 15, 1648885745),
-(11, 'menhara', 'default.jpg', 'taroTITL', 22, 15, 1648886128),
-(12, 'Taro', 'default.jpg', 'taromenharaTEI', 21, 15, 1648886262),
-(13, 'ssss', 'Jadwal.png', 's', 4, 1, 1649031285),
-(15, '12', 'default1.jpg', 'rtet', 20, 1, 1649113489),
-(16, 'ww', 'Jadwal.png', 'wwww12', 21, 1, 1649113522),
-(18, 'er', 'e.png', 'er', 20, 1, 1649114874),
-(20, 'ddd', 'e.png', 'eee', 20, 1, 1649140534);
+INSERT INTO `product` (`id`, `title`, `image`, `image2`, `image3`, `image4`, `image5`, `youtube_embed`, `description`, `jurusan_id`, `user_id`, `create_at`) VALUES
+(1, 'Overview of ZWN Mainan Remote Control Mobil RC Gesture Sensing Stunt Car 360 Flip - 88A', 'zwn-mobil-mainan-rc-gesture-sensing-stunt-car-360-flip-2_4g-upgrade-88a-blue-163.jpg', 'zwn-mobil-mainan-rc-gesture-sensing-stunt-car-360-flip-2_4g-upgrade-88a-blue-164.jpeg', 'zwn-mobil-mainan-rc-gesture-sensing-stunt-car-360-flip-2_4g-upgrade-88a-blue-165.jpeg', 'zwn-mobil-mainan-rc-gesture-sensing-stunt-car-360-flip-2_4g-upgrade-88a-blue-167.jpg', 'zwn-mobil-mainan-rc-gesture-sensing-stunt-car-360-flip-2_4g-upgrade-88a-blue-170.jpg', 'aMVg3kxtrQs', 'Mobil-mobilan rc atau remote control sudah banyak di pasaran. Namun, mobil-mobilan yang menggunakan sensor gerak masih sedikit. Mobil rc ini bisa menjadi mainan yang tepat jika Anda bosan dengan mobil remot pada umumnya. Anda dapat memainkan mobil ini menggunakan gerakan jari, sehingga mobil dapat langsung bermanuver sesuai dengan input gerakan yang Anda berikan.', 1, 1, 1652569703),
+(2, 'BEESCLOVER Keypad Numeric Multimedia Wireless 2.4GHz 35 Buttons - R57 - Black', 'beesclover-keypad-numeric-multimedia-wireless-24ghz-35-buttons-r57-black-5.jpg', 'beesclover-keypad-numeric-multimedia-wireless-24ghz-35-buttons-r57-black-4.jpg', 'beesclover-keypad-numeric-multimedia-wireless-24ghz-35-buttons-r57-black-1.jpg', 'beesclover-keypad-numeric-multimedia-wireless-24ghz-35-buttons-r57-black-2.jpg', 'default.jpg', 'mj1PN_U4-Uc', 'Numeric Multimedia keypad ini memiliki fitur wireless sehingga Anda dapat menggunakan numpad ini dari jarak jauh. Anda dapat berasa menggunakan kalkulator karena dapat menggunakan numpad ini dengan bebas. Menggunakan dongle wireless 2.4 GHz untuk terhubung ke numpad ini.', 1, 1, 1652953234);
 
 -- --------------------------------------------------------
 
@@ -88,7 +103,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `image` varchar(128) NOT NULL,
+  `image` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
@@ -101,10 +116,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `jurusan_id`, `date_created`) VALUES
-(1, 'Najib', 'najib@gmail.com', 'default1.jpg', '$2y$10$I88gRGIEAgPh3wnpHHRiueiwBcc39vY12KU68pEJ72TSAHwiVlvfO', 1, 1, 4, 1647899825),
-(14, 'Conan', 'conan@gmail.com', 'default.jpg', '$2y$10$AU52vuqWJg2eWzy6LmsVn.jiNJZ6T4dqqHUWCeRZAvRfUMy73tMBe', 2, 1, 20, 1648854635),
-(15, 'Taro', 'taro@gmail.com', 'default.jpg', '$2y$10$qR55WD384hDXHnDN8cFntOlGR3/GkApYwsyBbbKiOc/MaQeeFDFqe', 1, 1, 4, 1648854687),
-(16, 'erer', 'oscar@gmail.com', 'default.jpg', '$2y$10$bA9n9FWkZlI6PAwnjhiM4e3abLKVgaXvGPcnLt93VnNkt5WLsreWe', 1, 1, 4, 1648854856);
+(1, 'Najib', 'najib@gmail.com', 'default.jpg', '$2y$10$I88gRGIEAgPh3wnpHHRiueiwBcc39vY12KU68pEJ72TSAHwiVlvfO', 1, 1, 1, 1652533423),
+(2, 'Taro', 'taro@gmail.com', 'default.jpg', '$2y$10$r0GLHrpRGJ6UnReC3mulbeyMWXbvXbrk4OJgHaSpSRCznmh/pqTRW', 2, 1, 2, 1652533442),
+(3, 'hamtaro', 'hamtaro@gmail.com', 'default.jpg', '$2y$10$023mN8ZsZgw1EVxEREQ./Oo4D7E1b7npKLraqty9cwS9wR/8Qo0mi', 2, 1, 2, 1652533494);
 
 -- --------------------------------------------------------
 
@@ -193,14 +207,22 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (4, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1),
 (5, 3, 'Sub Menu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
 (6, 1, 'Role', 'administrator/role', 'fas fa-fw fa-user-cog', 1),
-(16, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
-(23, 1, 'Accounts', 'administrator/accounts', 'fas fa-fw fa-users', 1),
-(24, 1, 'Jurusan', 'administrator/jurusan', 'fas fa-fw fa-tasks', 1),
-(25, 2, 'Product', 'user/product', 'fas fa-fw fa-calendar', 1);
+(7, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
+(8, 1, 'Accounts', 'administrator/accounts', 'fas fa-fw fa-users', 1),
+(9, 1, 'Jurusan', 'administrator/jurusan', 'fas fa-fw fa-tasks', 1),
+(10, 2, 'Product', 'user/product', 'fas fa-fw fa-calendar', 1),
+(11, 1, 'Home', 'administrator/home', 'fas fa-fw fa-home', 1),
+(12, 1, 'All Product', 'administrator/allproduct', 'fas fa-fw fa-calendar', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `home`
+--
+ALTER TABLE `home`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jurusan`
@@ -249,46 +271,52 @@ ALTER TABLE `user_sub_menu`
 --
 
 --
+-- AUTO_INCREMENT for table `home`
+--
+ALTER TABLE `home`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

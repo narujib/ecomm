@@ -20,10 +20,6 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Product List
-                        <a href="<?= base_url('user/createproduct'); ?>" class="btn btn-primary float-right">Create Product</a>
-
-                    </h6>
-
                     </h6>
                 </div>
                 <div class="card-body">
@@ -35,7 +31,9 @@
                                     <th class="col-sm">Name</th>
                                     <th class="col-sm">Image</th>
                                     <th class="col-sm">Description</th>
+                                    <th class="col-sm">Jurusan</th>
                                     <th class="col-sm">Youtube</th>
+                                    <th class="col-sm">User Post</th>
                                     <th class="col-sm">Create</th>
                                     <th class="col-sm">Action</th>
                                 </tr>
@@ -50,11 +48,12 @@
                                         <td><span class="text-break"><?= $c['title']; ?></span></td>
                                         <td><img src="<?= base_url('assets/img/product/') . $c['image']; ?>" class="img-thumbnail"></td>
                                         <td><span class="d-inline-block text-truncate text-break" style="max-width: 150px;"><?= $c['description'];  ?></span></td>
-                                        <td><span class="text-break"><?= $c['youtube_embed']; ?></span></td>
+                                        <td><?= $c['jurusan']; ?></td>
+                                        <td><?= $c['youtube_embed']; ?></td>
+                                        <td><?= $c['name']; ?></td>
                                         <td><?= date('d F Y', $c['create_at']); ?></td>
                                         <td>
                                             <a href="<?= base_url(); ?>home/productdetail/<?= $c['id'] ?>" target="_blank" class="btn btn-warning m-1"><i class="fas fa-eye"></i></a>
-                                            <a href="<?= base_url(); ?>user/editproduct/<?= $c['id'] ?>" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a>
                                             <a href="<?= base_url(); ?>user/deletproduct/<?= $c['id'] ?>" class="btn btn-danger m-1" onclick="return confirm('Sure?');"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>

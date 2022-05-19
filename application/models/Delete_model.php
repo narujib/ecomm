@@ -26,4 +26,25 @@ class Delete_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('user_sub_menu');
     }
+
+    public function deletuser($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user');
+    }
+
+    public function deletproduct($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('product');
+    }
+
+    public function resetpassuser($id)
+    {
+        $this->db->where('id', $id);
+        $data = [
+            'password'  => password_hash((123456), PASSWORD_DEFAULT)
+        ];
+        $this->db->update('user', $data);
+    }
 }

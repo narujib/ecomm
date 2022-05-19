@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('home'); ?>">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('home'); ?>" target="_blank">
         <div class="sidebar-brand-icon">
             <img src="<?= base_url('assets/img/smkjateng.png'); ?>" class="img-fluid" width="50px"></img>
         </div>

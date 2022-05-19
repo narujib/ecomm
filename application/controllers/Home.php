@@ -8,8 +8,9 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Product SMK N Jawa Tengah';
         $this->load->model('Menu_model', 'menu');
+        $data['home'] = $this->db->get('home')->row_array();
 
-        $data['product'] = $this->menu->getJurusan();
+        $data['product'] = $this->menu->productLimit();
 
         $this->load->view('templates/home_header', $data);
         $this->load->view('home/index', $data);
@@ -40,11 +41,13 @@ class Home extends CI_Controller
         $this->load->view('templates/home_footer');
     }
 
-    public function productSingle($id)
+    public function productdetail($id)
     {
-        $data['title'] = 'Produk SMK N Jawa Tengah - Our Product';
+        $data['title'] = 'Produk SMK N Jawa Tengah - Detail Product';
+        $this->load->model('Menu_model', 'menu');
+
+        $data['all'] = $this->menu->productLimitV();;
         $data['product'] = $this->db->get_where('product', ['id' => $id])->row_array();
-        $data['user'] = $this->db->get('user')->result_array();
         $data['jurusan'] = $this->db->get('jurusan')->result_array();
 
         $this->load->view('templates/home_header', $data);

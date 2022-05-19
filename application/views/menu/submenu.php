@@ -14,12 +14,15 @@
             <?php endif; ?>
 
             <?= $this->session->flashdata('message'); ?>
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#add-submenu-modal">Add Sub Menu</a>
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Sub Menu List</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Sub Menu List
+                        <a href="" class="btn btn-primary float-right" data-toggle="modal" data-target="#add-submenu-modal">Add Sub Menu</a>
+
+                    </h6>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -53,7 +56,7 @@
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url('menu/submenuedit/') . $sm['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#delete-modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
@@ -112,13 +115,13 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="1" name="is_active" id="is_active1" value="option1" checked>
                             <label class="form-check-label" for="is_active">
-                                Active
+                                Yes
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="0" name="is_active" id="is_active2" value="option2">
                             <label class="form-check-label" for="is_active">
-                                Non active
+                                No
                             </label>
                         </div>
                     </div>

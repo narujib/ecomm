@@ -45,9 +45,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
+                    <label for="jurusan_id" class="col-sm-2 col-form-label">Jurusan</label>
                     <div class="col-sm-10">
-                        <select name="jurusan" id="jurusan" class="form-control">
+                        <select name="jurusan_id" id="jurusan_id" class="form-control">
                             <option value="<?= $ed_user['jurusan_id']; ?>">Jurusan</option>
                             <?php foreach ($jurusan as $j) : ?>
                                 <option value="<?= $j['id'] ?>"><?= $j['jurusan']; ?></option>
@@ -56,34 +56,17 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="is_active" class="col-sm-2 col-form-label">Active</label>
+                    <label for="active" class="col-sm-2 col-form-label">Active</label>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="is_active" id="is_active1" value="1" checked>
+                            <input class="form-check-input" type="radio" value="1" name="is_active" id="is_active1" value="option1" checked>
                             <label class="form-check-label" for="is_active">
                                 Yes
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="0" name="is_active" id="is_active0">
+                            <input class="form-check-input" type="radio" value="0" name="is_active" id="is_active2" value="option2">
                             <label class="form-check-label" for="is_active">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="reset" class="col-sm-2 col-form-label">Reset Password</label>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="1" name="reset" id="yes">
-                            <label class="form-check-label" for="reset">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="0" name="reset" id="no" checked>
-                            <label class="form-check-label" for="reset">
                                 No
                             </label>
                         </div>
@@ -92,7 +75,7 @@
 
                 <div class="form-group row justify-content-end">
                     <div class="col-sm-10">
-                        <a href="<?= base_url('administrator/jurusan'); ?>" class="btn btn-danger">Cancel</a>
+                        <a href="<?= base_url('administrator/accounts'); ?>" class="btn btn-danger">Cancel</a>
                         <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </div>

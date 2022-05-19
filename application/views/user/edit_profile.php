@@ -14,6 +14,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="jurusan" name="jurusan" value="<?= $UserDetail['jurusan']; ?>" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Full Name</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="name" name="name" value="<?= $user['name']; ?>">

@@ -1,112 +1,59 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html>
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Bingo One page parallax responsive HTML Template ">
-
-    <meta name="author" content="Themefisher.com">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title; ?></title>
 
-    <!-- Mobile Specific Meta
-  ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/colors.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/responsive.css">
+    <link rel="shortcut icon" href="<?= base_url('assets/img/'); ?>smkjateng.png">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/'); ?>img/smkjateng.png" />
-
-    <!-- CSS
-  ================================================== -->
-    <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="<?= base_url('assets/home/'); ?>plugins/themefisher-font/style.css">
-    <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="<?= base_url('assets/home/'); ?>plugins/bootstrap/css/bootstrap.min.css">
-    <!-- Lightbox.min css -->
-    <link rel="stylesheet" href="<?= base_url('assets/home/'); ?>plugins/lightbox2/dist/css/lightbox.min.css">
-    <!-- animation css -->
-    <link rel="stylesheet" href="<?= base_url('assets/home/'); ?>plugins/animate/animate.css">
-    <!-- Slick Carousel -->
-    <link rel="stylesheet" href="<?= base_url('assets/home/'); ?>plugins/slick/slick.css">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="<?= base_url('assets/home/'); ?>css/style.css">
-    <!-- Custom fonts for this template-->
-    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- owl -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- fancybox -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 </head>
 
-<body id="body">
-
-    <!--
-  Start Preloader
-  ==================================== -->
-    <div id="preloader">
-        <div class='preloader'>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+<body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container pt-2 pb-2">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="info-box">
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i> 024-86570267
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i> <a href="mailto:humas@smknjateng.sch.id"> humas@smknjateng.sch.id</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-sign-in-alt"></i><a href="<?= base_url('auth'); ?>"> Login as admin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-links content-right">
+                        <a href="#" class="fb">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="tw">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="ig">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!--
-  End Preloader
-  ==================================== -->
-
-
-
-
-    <!--
-Fixed Navigation
-==================================== -->
-    <header class="navigation fixed-top">
-        <div class="container">
-            <!-- main nav -->
-            <nav class="navbar navbar-expand-lg navbar-light">
-
-
-                <!-- logo -->
-                <a class="navbar-brand logo" href="<?= base_url('home/index'); ?>">
-                    <img class="logo-default mt-0" src="<?= base_url('assets/img/black.png'); ?>" alt="logo" />
-                    <img class="logo-white  mt-0" src="<?= base_url('assets/img/white.png'); ?>" alt="logo" />
-                </a>
-
-                <!-- /logo -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navigation">
-                    <ul class="navbar-nav ml-auto text-center">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url('home'); ?>">
-                                <h6>Home</h6>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url('home/product'); ?>">
-                                <h6>Product</h6>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url('home/contact'); ?>">
-                                <h6>Contact</h6>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <!-- /main nav -->
-        </div>
-    </header>
-    <!--
-End Fixed Navigation
-==================================== -->

@@ -1,108 +1,118 @@
-<section class="single-page-header">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2><?= $product['title']; ?></h2>
-                <ol class="breadcrumb header-bradcrumb">
+        <a class="navbar-brand" href="<?= base_url('home'); ?>">
+            <img src="<?= base_url('assets/img/black.png'); ?>" alt="logo detail">
+        </a>
 
-                </ol>
+    </div>
+</nav>
+
+
+<div class="s-product">
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            <div class="col-md">
+                <img class=" w-100 p-3" id="ImgGallery" src="<?= base_url('assets/img/product/') . $product['image']; ?>">
+
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img class="small-img-gallery w-100 p-3" src="<?= base_url('assets/img/product/') . $product['image']; ?>">
+                    </div>
+                    <div class="small-img-col">
+                        <img class="small-img-gallery w-100 p-3" src="<?= base_url('assets/img/product/') . $product['image2']; ?>">
+                    </div>
+                    <div class="small-img-col">
+                        <img class="small-img-gallery w-100 p-3" src="<?= base_url('assets/img/product/') . $product['image3']; ?>">
+                    </div>
+                    <div class="small-img-col">
+                        <img class="small-img-gallery w-100 p-3" src="<?= base_url('assets/img/product/') . $product['image4']; ?>">
+                    </div>
+                    <div class="small-img-col">
+                        <img class="small-img-gallery w-100 p-3" src="<?= base_url('assets/img/product/') . $product['image5']; ?>">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md">
+
+                <div class="card-body">
+                    <h3 class="fw-bold"><?= $product['title']; ?></h3>
+                    <p class="mt-3"><?= $product['description']; ?></p>
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg pt-4 pb-4">
+                            <div class="ratio ratio-16x9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $product['youtube_embed']; ?>" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div><!-- End Video -->
+
+
+                    <div class="row border-top-logo">
+                        <h5 class="mt-3 fw-bolder">For more information :
+                            <?php foreach ($jurusan as $j) : ?>
+                                <?php if ($product['jurusan_id'] == $j['id'])
+                                    echo $j['jurusan'];
+                                ?>
+                            <?php endforeach ?>
+                        </h5>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md mt-3">
+                            <?php foreach ($jurusan as $j) : ?>
+                                <?php if ($product['jurusan_id'] == $j['id'])
+                                    $p =  $j['wa'];
+
+
+                                ?>
+                            <?php endforeach ?>
+                            <a href="https://wa.me/62<?= $p; ?>" target="blank">
+                                <div class="btn btn-outline-secondary w-100 p-3 fab fa-whatsapp">
+                                    0<?= $p; ?>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md mt-3">
+                            <?php foreach ($jurusan as $j) : ?>
+                                <?php if ($product['jurusan_id'] == $j['id'])
+
+                                    $e = $j['email'];
+
+                                ?>
+                            <?php endforeach ?>
+                            <a href="mailto:<?= $e; ?>" target="blank">
+                                <div class="btn btn-outline-secondary w-100 p-3 fas fa-envelope">
+                                    <?= $e; ?>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="btn mt-3 btn-outline-secondary w-100 p-3 fas fa-home"> Jl. Brotojoyo No.1, Plombokan, Kec. Semarang Utara, Kota Semarang, Jawa Tengah 50171</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- blog details part start -->
-<section class="blog-details section">
-    <div class="container">
+</div>
+
+
+<!-- PRODUCTS -->
+<div id="gallery" class="gallery">
+    <div class="container pt-3 pb-3">
+        <h2 class="section-subtitle">Latest Products</h2>
         <div class="row">
-            <div class="col-lg-8 mx-auto">
-
-                <ul class="list-inline  mb-3">
-                    <a href="<?= base_url('home/product'); ?>">
-                        <li class="list-inline-item font-italic ">
-                            Product
-                        </li>
+            <?php foreach ($all as $c) : ?>
+                <div class="col-md-2 col-4 mt-3 gallery-item">
+                    <a href="<?= base_url(); ?>home/productdetail/<?= $c['id'] ?>">
+                        <img class="img-thumbnail transition" src="<?= base_url('assets/img/product/') . $c['image']; ?>" alt="image detail">
                     </a>
-                    <li class="list-inline-item text-muted font-italic">
-                        / <?= $product['title']; ?>
-
-                    </li>
-
-                </ul>
-
-                <article class="post">
-                    <div class="post-image">
-                        <img class="img-fluid w-100" src="<?= base_url('assets/img/product/') . $product['image']; ?>" alt="post-image">
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <!--<h3 class="mt-2"><?= $product['title']; ?></h3>-->
-                        <ul class="list-inline">
-                            <li class="list-inline-item text-muted font-italic">
-                                <?= date('d F Y', $product['create_at']); ?> /
-                            </li>
-                            <li class="list-inline-item text-muted font-italic">
-
-                                <?php foreach ($user as $u) : ?>
-                                    <?php if ($product['user_id'] == $u['id']) {
-                                        echo $u['name'];
-                                    }
-                                    ?>
-                                <?php endforeach; ?> /
-
-                            </li>
-                            <li class="list-inline-item text-muted font-italic">
-                                <?php foreach ($jurusan as $j) : ?>
-                                    <?php if ($product['jurusan_id'] == $j['id']) {
-                                        echo $j['jurusan'];
-                                    }
-                                    ?>
-                                <?php endforeach; ?>
-                            </li>
-                        </ul>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Sed ut perspiciatis unde omnis natus error sit voluptatem accusantium dolore mque laudantium totam rem aperiam
-                            eaque ipsa quae ab illo inventore veritatis et quasi archite beatae vitae dicta sunt explicabo. nemo enim ipsam
-                            voluptatem quia voluptassit.aspernatur aut odit aut fugit.</p>
-                        <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque poro quisquam est, qui dolorem
-                            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-                            labore et dolore magnam aliquam quaerat voluptatem</p>
-                        <!-- blockquote -->
-                        <blockquote data-aos="fade-left" data-aos-duration="1000">Excepteur sint occaecat cupidatat non proi dent, sunt in culpa qui officia deserunt mollit anim iest.laborum.
-                            sed perspiciatis unde omnis iste natus error voluptatem accusantium dolore mque laudantium.</blockquote>
-                        <p>Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Seper spiciatis
-                            unde omnis natus error sit voluptatem accusantium doloremque laudantium totam rem. aperiam eaque ipsa quae
-                            ab illo inventore veritatis.</p>
-                        <!-- post share -->
-                        <ul class="post-content-share list-inline">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="tf-ion-social-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="tf-ion-social-linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="tf-ion-social-facebook"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="tf-ion-social-skype"></i>
-                                </a>
-                            </li>
-                        </ul>
-
-
-                    </div>
-                </article>
-            </div>
-
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-</section>
-<!-- blog details part end -->
+</div>
