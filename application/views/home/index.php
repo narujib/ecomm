@@ -94,8 +94,11 @@
                 </div>
             <?php endforeach; ?>
             <!-- end -->
+            <div class="container text-center">
+                <div class="btn btn-primary load-more">View More</div>
+            </div>
 
-            <div class="btn btn-primary load-more">View More</div>
         </div>
     </div>
+
 </section>

@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.product-wrap .product-item').hide();
 
     //menampilkan data pertama
-    $('.product-wrap').children('.product-item:lt(4)').show();
+    $('.product-wrap').children('.product-item:lt(8)').show();
 
     //tombol
     $('.load-more').click(function () {

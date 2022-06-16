@@ -13,7 +13,7 @@
     <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-md">
-                <img class=" w-100 p-3" id="ImgGallery" src="<?= base_url('assets/img/product/') . $product['image']; ?>">
+                <img class="img-gall w-100 p-3" id="ImgGallery" src="<?= base_url('assets/img/product/') . $product['image']; ?>">
 
                 <div class="small-img-row">
                     <div class="small-img-col">
@@ -91,7 +91,15 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <div class="btn mt-3 btn-outline-secondary w-100 p-3 fas fa-home"> Jl. Brotojoyo No.1, Plombokan, Kec. Semarang Utara, Kota Semarang, Jawa Tengah 50171</div>
+                        <div class="card mt-3 w-100">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2901943068755!2d110.40776671475705!3d-6.9750483702378325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f4b345f77693%3A0x4a05a1f3b5fe39ba!2sSMK%20Negeri%20Jawa%20Tengah%20di%20Semarang!5e0!3m2!1sid!2sid!4v1655342863856!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <a href="https://goo.gl/maps/54xhp5q58BmXh6s58" target="blank" class="text-reset">
+                            <div class="w-100 text-bold">Jl. Brotojoyo No.1, Plombokan, Kec. Semarang Utara, Kota Semarang, Jawa Tengah 50171</div>
+                        </a>
+
+
                     </div>
                 </div>
             </div>
